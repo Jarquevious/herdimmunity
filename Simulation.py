@@ -52,9 +52,11 @@ class Simulation:
     def get_infected(self):
         '''Gets all the infected people from the population and returns them as a list'''
         #TODO: finish this method
-        person_infected = []
-        for infected_person in population:
-            person.infection.append(person_infected)
+        all_persons_infected = []
+        for person in self.population:
+            if person.infected != None:
+                all_persons_infected.append(person)
+        return all_persons_infected
 
 
     def simulation_should_continue(self):
@@ -65,6 +67,19 @@ class Simulation:
         In all other cases return True'''
         #TODO: finish this method
         
+        for person in self.population:
+            if person.is_alive in self.population == False:
+                return False
+            
+            elif person.is_vaccinated in self.population:
+                return False
+
+            elif person.infection not in self.population:
+                return False
+
+            else:
+                return True
+
 
     def run(self):
         ''' This method should run the simulation until all requirements for ending
@@ -101,6 +116,17 @@ class Simulation:
         if it returns false then the person is no longer alive, does not have an infection and one is added to total dead
         if it returns true then the person no longer has an infection and is vaccinated, one is added to total vaccinated'''
         #TODO: finish this method
+        for person in infected:
+            if person.did_survive_infection() == False:
+                person.is_alive = False
+                person.infection = None
+                self.total_dead += 1
+
+            else: 
+                person.infection = False
+                person.is_vaccinated = True
+                self.total_vaccinated += 1
+
             
 
 
