@@ -23,8 +23,8 @@ class Person:
         #TODO: finish this method
         random_num = random.randrange(1)
 
-        if random_num < self.mortality_num:
-            is_alive = False
+        if random_num < self.infection.mortality_num:
+            self.is_alive = False
             return False
 
         else:

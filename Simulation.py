@@ -1,4 +1,5 @@
 import random, sys
+from random import randrange
 from Person import Person
 from Virus import Virus
 from FileWriter import FileWriter
@@ -67,18 +68,20 @@ class Simulation:
         In all other cases return True'''
         #TODO: finish this method
         
-        for person in self.population:
-            if person.is_alive in self.population == False:
-                return False
             
-            elif person.is_vaccinated in self.population:
-                return False
+        if person.is_alive in self.population = 0:
+            print('test')
+            return False
+            
+        elif person.is_vaccinated in self.population:
+            return False
 
-            elif person.infection not in self.population:
-                return False
+        elif person.infection not in self.population:
+            return False
 
-            else:
-                return True
+        else:
+            print('test1')
+            return True
 
 
     def run(self):
@@ -135,11 +138,14 @@ class Simulation:
 
         for infected_person in infected:
 
-            for i in range(10):
+            for _ in range(10):
                 #TODO: get a random index for the population list
                 #TODO: using the random index get a random person from the population
                 #TODO: call interaction() with the current infected person and the random person
-                pass
+                random_person = random.choice(self.population)
+                self.interaction(infected, random_person)
+        
+            
 
 
     def interaction(self, infected, random_person):
@@ -151,10 +157,19 @@ class Simulation:
             if the random float is less then the infected person's virus reproduction number then the random person is infected
             othersie the random person is vaccinated and one is added to the total vaccinated'''
         #TODO: finish this method
-        
-
-
-        
+        for random_person in infected:
+            if random_person.is_alive != True:
+                return
+            elif random_person.is_vaccinated == True:
+                return 
+            else:
+                random_person.is_vaccinated == False
+                random_float = randrange(0.0, 1.0)
+                if random_float < random_person.reproduction_num:
+                    random_person.infected
+                else:
+                    random_person.is_vaccinated
+                    total_vaccinated += 1
 
 
 if __name__ == "__main__":
