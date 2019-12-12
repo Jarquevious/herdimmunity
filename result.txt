@@ -1,10 +1,10 @@
 Simulation for virus: Malaise
 Reproduction Number: 0.5, Mortality Number: 0.1
-Population Size: 103
+Population Size: 13
 Initial Vaccinated: 2
-Initial Healthy: 100
+Initial Healthy: 10
 Initial Infected: 1
 
-Simulation Ended after 4 turns
-Total Dead: 101
+Simulation Ended after 3 turns
+Total Dead: 11
 Total Vaccinated: 2

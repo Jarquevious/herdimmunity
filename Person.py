@@ -4,7 +4,7 @@ from Virus import Virus
 class Person:
     ''' The simulation will contain people who will make up a population.'''
 
-    def __init__(self, is_alive, is_vaccinated, infection=None):
+    def __init__(self, is_vaccinated, infection=None):
         ''' We start out with is_alive = True
         All other values will be set by the simulation through the parameters when it instantiates each Person object.
         '''
@@ -21,16 +21,16 @@ class Person:
         '''
 
         #TODO: finish this method
-        random_num = random.randrange(1)
+        if self.infection is not None:
+            rm_number = random.randrange(0.0, 1.0)
+            if rm_number <= self.infection.mortality_num:
+                self.is_alive = False
+                return False
 
-        if random_num < self.infection.mortality_num:
-            self.is_alive = False
-            return False
-
-        else:
-            self.is_vaccinated = True
-            self.infection = None 
-            return True
+            else:
+                self.is_vaccinated = True
+                self.infection = None
+                return True
 
 jarquevious = Person(True, False)
 print (f'Jarquevious infection status: {jarquevious.is_alive}')
